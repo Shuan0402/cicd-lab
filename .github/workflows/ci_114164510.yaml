@@ -2,7 +2,7 @@ name: CI Pipeline
 
 on:
   push:
-    branches: ['main', 'mfeature/ci-observe']
+    branches: ['main', 'feature/ci-observe']
   pull_request:
     branches: ['main', 'feature/ci-observe']
 
