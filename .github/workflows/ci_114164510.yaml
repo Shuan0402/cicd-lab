@@ -10,6 +10,11 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest
 
+    permissions:
+      checks: write
+      contents: read
+      pull-requests: write
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -32,6 +37,9 @@ jobs:
         run: npm run format:check
 
       # Test
+      - name: Create Test Results Directory
+        run: mkdir -p test-results
+        
       - name: Run Tests
         run: npm run test -- --reporter=default --reporter=junit --outputFile=test-results/junit.xml
 
